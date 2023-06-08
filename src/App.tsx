@@ -22,6 +22,7 @@ const App = () => {
     newBoard.initCells();
     newBoard.addElements();
     setBoard(newBoard);
+    setCurrentPlayer(whitePlayer);
   }
 
   function swapPlayer() {
