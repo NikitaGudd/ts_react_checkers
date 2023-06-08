@@ -14,7 +14,7 @@ const App = () => {
 
   useEffect(() => {
     restart();
-    setCurrentPlayer(null);
+    setCurrentPlayer(currentPlayer);
   }, []);
 
   function restart() {

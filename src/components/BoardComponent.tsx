@@ -3,6 +3,7 @@ import { Board } from "../logic/Board";
 import CellComponent from "./CellComponent";
 import { Cell } from "../logic/Cell";
 import { Player } from "../logic/Player";
+import { Colors } from "../logic/Colors";
 
 interface BoardElements {
   board: Board;
@@ -52,7 +53,12 @@ const BoardComponent: FC<BoardElements> = ({
   return (
     <>
       <div className="current-player">
-        Поточний гравець: {currentPlayer?.color}
+        Поточний гравець:{" "}
+        {currentPlayer
+          ? currentPlayer?.color === Colors.BLACK
+            ? "Чорні"
+            : "Білі"
+          : ""}
       </div>
       <div className="board">
         {board.cells.map((row, i) => (
