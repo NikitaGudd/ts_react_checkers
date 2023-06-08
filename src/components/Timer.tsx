@@ -51,6 +51,7 @@ const Timer: FC<TimerElems> = ({ currentPlayer, restart }) => {
 
   return (
     <div className="timer">
+      {isGameStarted ? "" : <Begin />}
       <div>
         <button onClick={handleRestart}>Почати нову гру</button>
       </div>
@@ -58,6 +59,14 @@ const Timer: FC<TimerElems> = ({ currentPlayer, restart }) => {
         <span className="black-timer">Чорні</span> - {blackTimer}
         <span className="white-timer">Білі</span> - {whiteTimer}
       </div>
+    </div>
+  );
+};
+
+const Begin = () => {
+  return (
+    <div className="warning">
+      <h5>Натисніть для початку гри</h5>
     </div>
   );
 };
