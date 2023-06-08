@@ -32,14 +32,14 @@ export class CheckerElem extends Checker {
 
     if (
       absDy === 2 &&
-      absDx === 2 && // Рух на дві клітинки по діагоналі
-      ((direction === 1 && dy === 2) || (direction === -1 && dy === -2)) && // Рух вперед відповідно до кольору шашки
-      this.cell.board.getCell(target.x, target.y).isEmpty() && // Цільова клітинка пуста
+      absDx === 2 &&
+      ((direction === 1 && dy === 2) || (direction === -1 && dy === -2)) &&
+      this.cell.board.getCell(target.x, target.y).isEmpty() &&
       !this.cell.board
         .getCell(this.cell.x + dx / 2, this.cell.y + dy / 2)
-        .isEmpty() && // Проміжна клітинка містить ворожу фігуру
+        .isEmpty() &&
       this.cell.board.getCell(this.cell.x + dx / 2, this.cell.y + dy / 2)
-        .checker?.color !== this.color // Проміжна клітинка містить фігуру протилежного кольору
+        .checker?.color !== this.color
     ) {
       return true;
     }
