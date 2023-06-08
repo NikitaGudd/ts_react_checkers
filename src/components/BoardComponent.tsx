@@ -52,7 +52,7 @@ const BoardComponent: FC<BoardElements> = ({
   return (
     <>
       <div className="current-player">
-        Поточний гравець: <span>{currentPlayer?.color}</span>
+        Поточний гравець: {currentPlayer?.color}
       </div>
       <div className="board">
         {board.cells.map((row, i) => (

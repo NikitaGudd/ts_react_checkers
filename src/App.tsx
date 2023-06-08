@@ -4,6 +4,7 @@ import BoardComponent from "./components/BoardComponent";
 import { Board } from "./logic/Board";
 import { Player } from "./logic/Player";
 import { Colors } from "./logic/Colors";
+import Timer from "./components/Timer";
 
 const App = () => {
   const [board, setBoard] = useState(new Board());
@@ -31,6 +32,7 @@ const App = () => {
 
   return (
     <div className="app">
+      <Timer restart={restart} currentPlayer={currentPlayer} />
       <BoardComponent
         board={board}
         setBoard={setBoard}
