@@ -113,7 +113,7 @@
 
 .timer button:hover {
   background-color: #8464ed;
-  transition: 0.5s all;
+  transition: 0.5s all ease;
 }
 .timer button:active {
   background-color: #64d4ed;
