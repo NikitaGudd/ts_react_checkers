@@ -9,7 +9,7 @@ interface TimerElems {
 
 const Timer: FC<TimerElems> = ({ currentPlayer, restart }) => {
   const [blackTimer, setBlackTimer] = useState(200);
-  const [WhiteTimer, setWhiteTimer] = useState(200);
+  const [whiteTimer, setWhiteTimer] = useState(200);
   const timerId = useRef<null | ReturnType<typeof setInterval>>(null);
 
   useEffect(() => {
@@ -37,13 +37,21 @@ const Timer: FC<TimerElems> = ({ currentPlayer, restart }) => {
     setWhiteTimer((prev) => prev - 1);
   }
 
+  const handleRestart = () => {
+    setWhiteTimer(200);
+    setBlackTimer(200);
+    restart();
+  };
+
   return (
     <div className="timer">
       <div>
-        <button onClick={restart}>Перезапустити гру</button>
+        <button onClick={handleRestart}>Почати нову гру</button>
       </div>
-      <span>Чорні - {blackTimer}</span>
-      <span>Білі - {WhiteTimer}</span>
+      <div className="timer-colors">
+        <span className="black-timer">Чорні</span> - {blackTimer}
+        <span className="white-timer">Білі</span> - {whiteTimer}
+      </div>
     </div>
   );
 };

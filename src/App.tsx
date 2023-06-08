@@ -32,13 +32,13 @@ const App = () => {
 
   return (
     <div className="app">
-      <Timer restart={restart} currentPlayer={currentPlayer} />
       <BoardComponent
         board={board}
         setBoard={setBoard}
         currentPlayer={currentPlayer}
         swapPlayer={swapPlayer}
       />
+      <Timer restart={restart} currentPlayer={currentPlayer} />
     </div>
   );
 };
