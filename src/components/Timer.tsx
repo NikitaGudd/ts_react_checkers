@@ -10,11 +10,16 @@ interface TimerElems {
 const Timer: FC<TimerElems> = ({ currentPlayer, restart }) => {
   const [blackTimer, setBlackTimer] = useState(200);
   const [whiteTimer, setWhiteTimer] = useState(200);
+  const [isGameStarted, setIsGameStarted] = useState(false);
   const timerId = useRef<null | ReturnType<typeof setInterval>>(null);
 
   useEffect(() => {
-    setTimer();
-  }, [currentPlayer]);
+    if (isGameStarted) {
+      setTimer();
+    } else {
+      clearInterval(timerId.current!);
+    }
+  }, [currentPlayer, isGameStarted]);
 
   function setTimer() {
     if (timerId.current) {
@@ -40,6 +45,7 @@ const Timer: FC<TimerElems> = ({ currentPlayer, restart }) => {
   const handleRestart = () => {
     setWhiteTimer(200);
     setBlackTimer(200);
+    setIsGameStarted(true);
     restart();
   };
 
