@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -63,4 +65,16 @@
   background-image: #6495ed;
   background-image: linear-gradient(315deg, #6495ed 15%, #6495ed 50%);
   border-radius: 50%;
+}
+
+.current-player {
+  width: 200px;
+  border: 1px solid black;
+  padding: 40px;
+  border-radius: 5px;
+  margin-left: -60px;
+  margin-right: 20px;
+  font-family: "Poppins", sans-serif;
+  -webkit-box-shadow: 1px 2px 39px 5px rgba(0, 0, 0, 0.43);
+  box-shadow: 1px 2px 39px 5px rgba(0, 0, 0, 0.43);
 }
