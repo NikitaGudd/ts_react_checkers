@@ -23,9 +23,9 @@ export class CheckerElem extends Checker {
 
     if (
       absDy === 1 &&
-      absDx === 1 && // Рух на одну клітинку по діагоналі
-      ((direction === 1 && dy === 1) || (direction === -1 && dy === -1)) && // Рух вперед відповідно до кольору шашки
-      this.cell.board.getCell(target.x, target.y).isEmpty() // Цільова клітинка пуста
+      absDx === 1 &&
+      ((direction === 1 && dy === 1) || (direction === -1 && dy === -1)) &&
+      this.cell.board.getCell(target.x, target.y).isEmpty()
     ) {
       return true;
     }
