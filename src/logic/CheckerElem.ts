@@ -43,13 +43,15 @@ export class CheckerElem extends Checker {
     ) {
       return true;
     }
+
     return false;
   }
 
   moveChecker(target: Cell) {
-    super.moveChecker(target);
-    if (this.canMove(target)) {
-      target.checker = null;
+    if (this.cell.checker) {
+      this.cell.removeChecker();
     }
+
+    super.moveChecker(target);
   }
 }

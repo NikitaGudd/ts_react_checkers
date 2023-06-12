@@ -50,15 +50,14 @@ const BoardComponent: FC<BoardElements> = ({
     setBoard(newBoard);
   }
 
+  console.log(currentPlayer);
+
   return (
     <>
       <div className="current-player">
-        Поточний гравець:{" "}
-        {currentPlayer
-          ? currentPlayer?.color === Colors.BLACK
-            ? "Чорні"
-            : "Білі"
-          : ""}
+        Поточний гравець:
+        {!!currentPlayer &&
+          (currentPlayer?.color === Colors.BLACK ? "Чорні" : "Білі")}
       </div>
       <div className="board">
         {board.cells.map((row, i) => (
