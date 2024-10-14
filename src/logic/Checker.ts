@@ -7,6 +7,7 @@ export class Checker {
   logo: typeof logo | null;
   cell: Cell;
   id: number;
+  isKing: boolean
 
   constructor(color: Colors, cell: Cell) {
     this.color = color;
@@ -14,6 +15,7 @@ export class Checker {
     this.cell.checker = this;
     this.logo = null;
     this.id = Math.random();
+    this.isKing = false;
   }
 
   canMove(target: Cell): boolean {

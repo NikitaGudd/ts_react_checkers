@@ -48,10 +48,30 @@ export class CheckerElem extends Checker {
   }
 
   moveChecker(target: Cell) {
-    if (this.cell.checker) {
-      this.cell.removeChecker();
+    const dx = target.x - this.cell.x;
+    const dy = target.y - this.cell.y;
+
+    if (Math.abs(dx) === 2 && Math.abs(dy) === 2) {
+      const capturedCell = this.cell.board.getCell(
+        this.cell.x + dx / 2,
+        this.cell.y + dy / 2
+      );
+      capturedCell.removeChecker(); 
     }
 
     super.moveChecker(target);
+
+    if (
+      (this.color === Colors.WHITE && target.y === 0) ||
+      (this.color === Colors.BLACK && target.y === 7)
+    ) {
+      this.becomeKing();
+    }
+  }
+
+  becomeKing() {
+    this.isKing = true;
+    this.logo = this.color === Colors.WHITE ? whiteChecker : blackChecker;
   }
 }
+

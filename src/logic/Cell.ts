@@ -39,7 +39,7 @@ export class Cell {
   }
 
   removeChecker() {
-    return this.checker === null;
+    this.checker = null;
   }
 
   setChecker(checker: Checker) {
@@ -51,7 +51,7 @@ export class Cell {
     if (this.checker && this.checker?.canMove(target)) {
       this.checker.moveChecker(target);
       target.setChecker(this.checker);
-      this.checker = null;
+      this.removeChecker();
     }
   }
 }
